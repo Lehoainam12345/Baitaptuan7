@@ -1,4 +1,5 @@
 // ================== Lớp trừu tượng Sach ==================
+// ✅ Cập nhật bổ sung thông tin mô tả bởi nhánh nguyen-phuc
 public abstract class Sach {
     private String maSach;
     private String tieuDe;
