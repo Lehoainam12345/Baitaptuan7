@@ -1,5 +1,6 @@
-// ================== Interface IKiemKe ==================
-public interface IKiemKe {
-    boolean kiemTraTonKho(int soLuongToiThieu);
-    void capNhatViTri(String viTriMoi);
+package Baitaptuan6;
+
+public interface IkiemKe {
+    public abstract boolean kiemTraTonKho(int soLuongToiThieu); 
+    public abstract void capNhatViTri(String viTriMoi); 
 }
