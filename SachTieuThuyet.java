@@ -1,6 +1,6 @@
 package Baitaptuan6;
 
-public class SachTieuThuyet extends Sach {
+public class SachTieuThuyet extends Sach implements IkiemKe{
     private String theLoai;
     private Boolean laSachSeries;
     private String viTri;
@@ -37,6 +37,16 @@ public class SachTieuThuyet extends Sach {
             return super.giaCoBan+15.000;
         else
             return super.giaCoBan;
+    }
+    public boolean kiemTraTonKho(int soLuongToiThieu) {
+        if (soLuong >= soLuongToiThieu)
+            return true;
+        else
+            return false;
+    }
+    public void capNhatViTri(String viTriMoi) {
+        this.viTri = viTriMoi;
+        System.out.println("Đã chuyển sách \"" + tieuDe + "\" đến khu vực: " + viTriMoi);
     }
 }
 

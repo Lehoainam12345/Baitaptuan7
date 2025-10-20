@@ -6,6 +6,7 @@ public class Test{
     public static void main(String[] args){
         QuanLySach sach1= new QuanLySach(1);
         sach1.Nhap();
+        System.out.println(sach1);
         sach1.Xuat();
         System.out.println("KIEM TRA IKIEM KE");
         IkiemKe sach2 = new SachGiaoTrinh(
