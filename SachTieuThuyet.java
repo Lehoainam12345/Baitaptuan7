@@ -1,42 +1,52 @@
-// ================== Lớp SachTieuThuyet ==================
-public class SachTieuThuyet extends Sach implements IKiemKe {
+package Baitaptuan6;
+
+public class SachTieuThuyet extends Sach implements IkiemKe{
     private String theLoai;
-    private boolean laSachSeries;
-
-    public SachTieuThuyet(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong,
-                          double giaCoBan, String theLoai, boolean laSachSeries) {
-        super(maSach, tieuDe, tacGia, namXuatBan, soLuong, giaCoBan);
-        this.theLoai = theLoai;
-        this.laSachSeries = laSachSeries;
+    private Boolean laSachSeries;
+    private String viTri;
+    public SachTieuThuyet(){
+        super();
     }
-
-    @Override
-    public double tinhGiaBan() {
-        return getGiaCoBan() + (laSachSeries ? 15000 : 0);
+    public SachTieuThuyet(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong, double giaCoBan,String theLoai,boolean laSachSeries, String viTri){
+        super(maSach, tieuDe, tacGia, namXuatBan, soLuong,giaCoBan);
+        this.theLoai=theLoai;
+        this.laSachSeries=laSachSeries;
+        this.viTri=viTri;
     }
-
-    @Override
+    public void Nhap(){
+        super.Nhap();
+        System.out.println("Nhap theLoai: ");
+        this.theLoai=super.sc.nextLine();
+        System.out.println("Nhap laSachSeries");
+        this.laSachSeries = Boolean.parseBoolean(sc.nextLine());
+        System.out.println("viTri: ");
+        this.viTri=super.sc.nextLine();
+    }
+    public void hienThiThongTin (){
+        super.hienThiThongTin();
+        System.out.println("theLoai: "+this.theLoai);
+        System.out.println("laSachSeries: "+this.laSachSeries);
+        System.out.println("GiaBanUocTinh: "+this.tinhGiaBan());
+        System.out.println("viTri: "+this.viTri);
+    }
+    public String toString(){
+        return super.toString()+" /theLoai="+this.theLoai+" / laSachSeries="+this.laSachSeries+" /giaban="+this.tinhGiaBan()+" /viTri="+this.viTri;
+    }@Override 
+    public double tinhGiaBan(){
+        if(laSachSeries=true)
+            return super.giaCoBan+15.000;
+        else
+            return super.giaCoBan;
+    }
     public boolean kiemTraTonKho(int soLuongToiThieu) {
-        return getSoLuong() >= soLuongToiThieu;
+        if (soLuong >= soLuongToiThieu)
+            return true;
+        else
+            return false;
     }
-
-    @Override
     public void capNhatViTri(String viTriMoi) {
-        System.out.println("📦 Đã chuyển sách "" + getTieuDe() + "" đến khu vực: " + viTriMoi);
-    }
-
-    @Override
-    public String toString() {
-        return "📖 Sách tiểu thuyết {" +
-                "\n  Mã sách: " + getMaSach() +
-                "\n  Tiêu đề: " + getTieuDe() +
-                "\n  Tác giả: " + getTacGia() +
-                "\n  Năm XB: " + getNamXuatBan() +
-                "\n  Số lượng: " + getSoLuong() +
-                "\n  Giá cơ bản: " + getGiaCoBan() +
-                "\n  Thể loại: " + theLoai +
-                "\n  Series: " + (laSachSeries ? "Có" : "Không") +
-                "\n  👉 Giá bán: " + tinhGiaBan() + " VNĐ" +
-                "\n}";
+        this.viTri = viTriMoi;
+        System.out.println("Đã chuyển sách \"" + tieuDe + "\" đến khu vực: " + viTriMoi);
     }
 }
+
